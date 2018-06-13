@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Memory Game</title>
+  <link rel="preload stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+  <link rel="preload stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700">
+  <link rel="preload stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 <body>
   <header>
@@ -14,7 +16,7 @@
   </header>
   <section class="controls">
     <div class="rating">
-      <ul>
+      <ul class="stars">
         <li><i class="fas fa-star"></i></li>
         <li><i class="fas fa-star"></i></li>
         <li><i class="fas fa-star"></i></li>
@@ -23,7 +25,7 @@
     <div class="moves">
       <p>Moves: <span class="move-count">1</span></p>
     </div>
-    <button name="restart"><i class="fas fa-sync-alt"></i>Restart</button>
+    <button name="restart"><i class="fas fa-sync-alt"></i> RESTART</button>
   </section>
 
   <main class="tableau">
