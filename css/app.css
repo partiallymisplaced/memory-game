@@ -42,7 +42,8 @@ h1 {
 }
 
 .stars,
-.moves {
+.moves,
+button {
   font-size: 1.2em;
   color: #FFF;
 }
@@ -53,7 +54,6 @@ button {
   border-radius: 6px;
   padding: 9px 18px;
   height: 48px;
-  font-size: 1.1em;
   color: rgb(20,10,115);
   font-weight: 700;
 }
@@ -92,21 +92,50 @@ button {
 .symbol .fa-moon {color: purple;}
 .symbol .fa-cloud {color: blue;}
 
-@media screen and (max-width:720px) {
+@media screen and (max-width:1440px) {
   .deck {
-    width: 480px;
-    height: 480px;
+    width: 460px;
+    height: 460px;
   }
   .controls {
-    width: 480px;
+    width: 460px;
+  }
+  h1 {
+    font-size: 4em;
+  }
+  .symbol {
+    font-size: 1.7em;
+  }
+  .stars,
+  .moves,
+  button {
+    font-size: 1em;
+  }
+  button {
+    height: 42px;
   }
 }
-@media screen and (max-width:600px) {
+@media screen and (max-width:420px) {
   .deck {
-    width: 360px;
-    height: 360px;
+    width: 260px;
+    height: 260px;
   }
   .controls {
-    width: 360px;
+    width: 260px;
+  }
+  h1 {
+    font-size: 3em;
+  }
+  .symbol {
+    font-size: 1em;
+  }
+  .stars,
+  .moves,
+  button {
+    font-size: 0.8em;
+  }
+  button {
+    height: 32px;
+    padding: 9px;
   }
 }
