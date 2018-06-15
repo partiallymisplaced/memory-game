@@ -6,8 +6,10 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  background: rgb(20,10,115);
-  background: linear-gradient(145deg, rgba(20,10,115,1) 0%, rgba(20,10,115,1) 0%, rgba(45,10,70,1) 66%);
+  background: #ff8f7a;
+  background: -webkit-linear-gradient(bottom, rgba(235,180,150,1) 0%, rgba(255,143,122,1) 100%);
+  background: -o-linear-gradient(bottom, rgba(235,180,150,1) 0%, rgba(255,143,122,1) 100%);
+  background: linear-gradient(to top, rgba(235,180,150,1) 0%, rgba(255,143,122,1) 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -54,7 +56,7 @@ button {
   border-radius: 6px;
   padding: 9px 18px;
   height: 48px;
-  color: rgb(20,10,115);
+  color: #ff8f7a;
   font-weight: 700;
 }
 
@@ -83,14 +85,14 @@ button {
   font-size: 2em;
 }
 
-.symbol .fa-heart {color: #ff3185;}
-.symbol .fa-star {color: #ff9515;}
-.symbol .fa-circle {color: #cc003a;}
-.symbol .fa-square {color: #2d2aa0;}
-.symbol .fa-play {color: #ffc82e; transform: rotate(31deg);}
-.symbol .fa-map-marker {color: #2ac7f2; transform: rotate(180deg);}
-.symbol .fa-moon {color: #4c0789;}
-.symbol .fa-cloud {color: #3366ff;}
+.symbol .fa-heart {color: #ff74d3;}
+.symbol .fa-star {color: #ffad4c;}
+.symbol .fa-circle {color: #ff5858;}
+.symbol .fa-square {color: #9cc759 ;}
+.symbol .fa-play {color: #ffd04b; transform: rotate(31deg);}
+.symbol .fa-map-marker {color: #55daff; transform: rotate(180deg);}
+.symbol .fa-moon {color: #ab80ff;}
+.symbol .fa-cloud {color: #5b9cff;}
 
 @media screen and (max-width:1440px) {
   .deck {
