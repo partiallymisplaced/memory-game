@@ -83,14 +83,14 @@ button {
   font-size: 2em;
 }
 
-.symbol .fa-heart {color: magenta;}
-.symbol .fa-star {color: orange;}
-.symbol .fa-circle {color: red;}
-.symbol .fa-square {color: darkblue;}
-.symbol .fa-play {color: yellow; transform: rotate(31deg);}
-.symbol .fa-map-marker {color: cyan; transform: rotate(180deg);}
-.symbol .fa-moon {color: purple;}
-.symbol .fa-cloud {color: blue;}
+.symbol .fa-heart {color: #ff3185;}
+.symbol .fa-star {color: #ff9515;}
+.symbol .fa-circle {color: #cc003a;}
+.symbol .fa-square {color: #2d2aa0;}
+.symbol .fa-play {color: #ffc82e; transform: rotate(31deg);}
+.symbol .fa-map-marker {color: #2ac7f2; transform: rotate(180deg);}
+.symbol .fa-moon {color: #4c0789;}
+.symbol .fa-cloud {color: #3366ff;}
 
 @media screen and (max-width:1440px) {
   .deck {
