@@ -21,6 +21,24 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   color: #FFF;
+  cursor: default;
+}
+
+.card.back {
+  box-sizing: border-box;
+  border: 6px solid #FFF;
+  background-color:#E2E2E2;
+  background-image:
+  radial-gradient(circle at 100% 150%, #E2E2E2 24%, #FFF 25%, #FFF 28%, #E2E2E2 29%, #E2E2E2 36%, #FFF 36%, #FFF 40%, transparent 40%, transparent),
+  radial-gradient(circle at 0    150%, #E2E2E2 24%, #FFF 25%, #FFF 28%, #E2E2E2 29%, #E2E2E2 36%, #FFF 36%, #FFF 40%, transparent 40%, transparent),
+  radial-gradient(circle at 50%  100%, #FFF 10%, #E2E2E2 11%, #E2E2E2 23%, #FFF 24%, #FFF 30%, #E2E2E2 31%, #E2E2E2 43%, #FFF 44%, #FFF 50%, #E2E2E2 51%, #E2E2E2 63%, #FFF 64%, #FFF 71%, transparent 71%, transparent),
+  radial-gradient(circle at 100% 50%, #FFF 5%, #E2E2E2 6%, #E2E2E2 15%, #FFF 16%, #FFF 20%, #E2E2E2 21%, #E2E2E2 30%, #FFF 31%, #FFF 35%, #E2E2E2 36%, #E2E2E2 45%, #FFF 46%, #FFF 49%, transparent 50%, transparent),
+  radial-gradient(circle at 0    50%, #FFF 5%, #E2E2E2 6%, #E2E2E2 15%, #FFF 16%, #FFF 20%, #E2E2E2 21%, #E2E2E2 30%, #FFF 31%, #FFF 35%, #E2E2E2 36%, #E2E2E2 45%, #FFF 46%, #FFF 49%, transparent 50%, transparent);
+  background-size:50px 25px;
+}
+
+.card.back i {
+  display: none;
 }
 
 .controls {
@@ -50,6 +68,10 @@ button {
   color: #FFF;
 }
 
+.moves {
+  cursor: default;
+}
+
 button {
   background-color: #FFF;
   border: 0;
@@ -58,6 +80,7 @@ button {
   height: 48px;
   color: #ff8f7a;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .deck {
@@ -79,6 +102,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .symbol {
@@ -89,10 +113,10 @@ button {
 .symbol .fa-star {color: #ffad4c;}
 .symbol .fa-circle {color: #ff5858;}
 .symbol .fa-square {color: #9cc759 ;}
-.symbol .fa-play {color: #ffd04b; transform: rotate(31deg);}
+.symbol .fa-play {color: #ffd04b; transform: rotate(31deg); transform-origin: 0.2em 0.8em;}
 .symbol .fa-map-marker {color: #55daff; transform: rotate(180deg);}
 .symbol .fa-moon {color: #ab80ff;}
-.symbol .fa-cloud {color: #5b9cff;}
+.symbol .fa-cloud {color: #5b9cff; font-size: 1.8em;}
 
 @media screen and (max-width:1440px) {
   .deck {
