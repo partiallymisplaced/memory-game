@@ -44,11 +44,12 @@ h1 {
 .controls {
   width: 560px;
   margin: 0 auto;
-  padding: 0 0 1em 0;
   border-bottom: 3px solid #FFF;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 1.2em;
+  color: #FFF;
 }
 
 .stars li {
@@ -61,22 +62,18 @@ h1 {
   padding: 0;
 }
 
-.stars,
 .moves,
-button {
-  font-size: 1.2em;
-  color: #FFF;
-}
-
-.moves {
+.timer {
   cursor: default;
 }
 
 button {
+  display: block;
   background-color: #FFF;
   border: 0;
   border-radius: 6px;
   padding: 9px 18px;
+  margin: 0 auto;
   height: 48px;
   color: #ff8f7a;
   font-weight: 700;
