@@ -1,6 +1,3 @@
-let playingCards = document.querySelector('.deck');
-console.log(playingCards);
-
 let cardSymbols = [
   "fa-heart", "fa-heart",
   "fa-star", "fa-star",
@@ -12,7 +9,6 @@ let cardSymbols = [
   "fa-cloud", "fa-cloud"
 ];
 
-// let cardSymbol = "fa-heart";
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -29,14 +25,22 @@ function shuffle(array) {
 }
 
 // Generates the game board
-function addSymbols(element, cardSymbol) {
+function generateCard(element, cardSymbol) {
   element.insertAdjacentHTML('afterbegin', `<li class="card back"><i class="fas ${cardSymbol} fa-2x"></i></li>`);
 }
 
 function generateBoard(cardSymbols) {
+  let cardDeck = document.querySelector('.deck')
   for (let cardSymbol of cardSymbols){
-    addSymbols(playingCards, cardSymbol);
+    generateCard(cardDeck, cardSymbol);
   }
+
+}
+
+// Adds event listener to board
+function clickListener() {
+  let playingCards = document.querySelector('.deck');
+  playingCards.addEventListener('click', flipCard, false);
 }
 
 // Opens cards on click, closes cards after timeout
@@ -59,14 +63,13 @@ function flipCard(e) {
   }, 1000);
 }
 
-
 // Initializes the game
 function initGame() {
   // TODO: reset moves counter
   // TODO: reset rating
   // TODO: reset timer
   generateBoard(shuffle(cardSymbols));
+  clickListener();
 }
 
 initGame();
-playingCards.addEventListener('click', flipCard, false);
