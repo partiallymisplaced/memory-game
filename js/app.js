@@ -12,16 +12,30 @@ let cardSymbols = [
   "fa-cloud", "fa-cloud"
 ];
 
-let deckSymbol = "fa-heart";
+// let cardSymbol = "fa-heart";
+// Shuffle function from http://stackoverflow.com/a/2450976
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-// Generates the game board
-function addSymbols(element) {
-  element.insertAdjacentHTML('afterbegin', `<li class="card back"><i class="fas ${deckSymbol} fa-2x"></i></li>`);
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
 
-function generateBoard() {
-  for (var i = 0; i < 16; i++) {
-    addSymbols(document.querySelector('.deck'));
+// Generates the game board
+function addSymbols(element, cardSymbol) {
+  element.insertAdjacentHTML('afterbegin', `<li class="card back"><i class="fas ${cardSymbol} fa-2x"></i></li>`);
+}
+
+function generateBoard(cardSymbols) {
+  for (let cardSymbol of cardSymbols){
+    addSymbols(playingCards, cardSymbol);
   }
 }
 
@@ -45,27 +59,13 @@ function flipCard(e) {
   }, 1000);
 }
 
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
 
 // Initializes the game
 function initGame() {
   // TODO: reset moves counter
   // TODO: reset rating
   // TODO: reset timer
-  generateBoard();
+  generateBoard(shuffle(cardSymbols));
 }
 
 initGame();
