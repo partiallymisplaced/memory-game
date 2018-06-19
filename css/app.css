@@ -56,6 +56,10 @@ h1 {
   display: inline;
 }
 
+.lost {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .stars,
 .deck {
   list-style-type: none;
@@ -101,6 +105,12 @@ button {
   align-items: center;
   cursor: pointer;
 }
+.match {
+  box-shadow: 0px 0px 12px 6px rgba(255, 239, 195, .85);
+}
+.mismatch {
+  box-shadow: 0px 0px 12px 6px rgba(255, 88, 88, .85);
+}
 
 .symbol {
   font-size: 2em;
@@ -114,6 +124,12 @@ button {
 .symbol .fa-map-marker {color: #55daff; transform: rotate(180deg);}
 .symbol .fa-moon {color: #ab80ff;}
 .symbol .fa-cloud {color: #5b9cff; font-size: 1.8em;}
+
+/* TODO: add animation for match and mismatch */
+/* TODO: add styles for end-of-game-modal */
+/* TODO: add animation for end-of-game-modal */
+/* TODO: add animation for shuffling the board */
+/* TODO: add animation for losing star */
 
 @media screen and (max-width:1440px) {
   .deck {
