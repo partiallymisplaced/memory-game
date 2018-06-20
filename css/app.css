@@ -52,12 +52,14 @@ h1 {
   color: #FFF;
 }
 
-.stars li {
+.stars li,
+.modal .stars li {
   display: inline;
 }
 
 .lost {
-  color: rgba(255, 255, 255, 0.6);
+  /* color: rgba(255, 255, 255, 0.6); */
+  opacity: 0.6;
 }
 
 .stars,
@@ -81,6 +83,7 @@ button {
   height: 48px;
   color: #ff8f7a;
   font-weight: 700;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -125,11 +128,63 @@ button {
 .symbol .fa-moon {color: #ab80ff;}
 .symbol .fa-cloud {color: #5b9cff; font-size: 1.8em;}
 
-/* TODO: add animation for match and mismatch */
 /* TODO: add styles for end-of-game-modal */
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+
+}
+
+.modal {
+  max-width: 50%;
+  width: 480px;
+  max-height: 50%;
+  height: 320px;
+  display: flex;
+  margin: auto auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #777;
+  background-color: #FFF;
+  text-align: center;
+  padding: 30px;
+  border-radius: 9px;
+  box-shadow: 0px 3px 12px 6px rgba(0, 0, 0, .1);
+}
+
+.modal > * {
+  width: 100%;
+}
+.modal .moves,
+.modal .timer {
+  width: 50%;
+}
+
+.modal h2 {
+  color: #ff8f7a;
+}
+
+.modal button {
+  color: #FFF;
+  background-color: #ff8f7a;
+}
+
+.close {
+  display: none;
+}
+
+/* TODO: add animation for match and mismatch */
 /* TODO: add animation for end-of-game-modal */
 /* TODO: add animation for shuffling the board */
 /* TODO: add animation for losing star */
+/* TODO: adjust sizes to accomodate restart button */
 
 @media screen and (max-width:1440px) {
   .deck {

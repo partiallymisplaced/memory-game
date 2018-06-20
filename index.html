@@ -34,8 +34,27 @@
     <ul class="deck">
     </ul>
   </main>
-  <button name="restart"><i class="fas fa-sync-alt"></i> RESTART</button>
-  <!-- TODO: Add end-of-game modal -->
+  <button name="restart"><i class="fas fa-sync-alt"></i> Restart</button>
+  <div class="modal-overlay open">
+    <div class="modal">
+      <h2>Yayyyyyy!!!</h2>
+      <p>You matched all the cards!</p>
+      <div class="rating">
+        <ul class="stars">
+          <li><i class="fas fa-star"></i></li>
+          <li><i class="fas fa-star"></i></li>
+          <li><i class="fas fa-star lost"></i></li>
+        </ul>
+      </div>
+      <div class="moves">
+        <p>Moves: <span class="move-count">1</span></p>
+      </div>
+      <div class="timer">
+        <p>Time: <span class="game-time">00:00</span></p>
+      </div>
+      <button name="restart"><i class="fas fa-sync-alt"></i> Play again</button>
+    </div>
+  </div>
   <script src="js/app.js"></script>
 </body>
 </html>

@@ -63,6 +63,19 @@ function flipCard(e) {
   }, 1000);
 }
 
+function closeModalListener() {
+  let modalBackground = document.querySelector('.modal-overlay');
+  modalBackground.addEventListener('click', function(){
+      modalBackground.classList.toggle('close');
+  });
+}
+
+// TODO: timer logic
+// TODO: match logic
+// TODO: count logic
+// TODO: rating logic
+// TODO: end-of-game modal logic
+
 // Initializes the game
 function initGame() {
   // TODO: reset moves counter
@@ -70,6 +83,7 @@ function initGame() {
   // TODO: reset timer
   generateBoard(shuffle(cardSymbols));
   clickListener();
+  closeModalListener();
 }
 
 initGame();
