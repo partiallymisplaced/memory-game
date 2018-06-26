@@ -70,7 +70,33 @@ function closeModalListener() {
   });
 }
 
-// TODO: timer logic
+// Start timer
+
+let gameSeconds = document.querySelector(".seconds");
+let gameMinutes = document.querySelector(".minutes");
+
+let seconds = 0;
+let minutes = 0;
+
+let timer = window.setInterval(tick, 1000);
+
+function tick() {
+  seconds += 1;
+  if (seconds >= 60){
+    seconds = 0;
+    minutes += 1;
+  }
+  gameSeconds.textContent = seconds;
+    if (seconds < 10) {
+      gameSeconds.textContent = "0" + seconds;
+    }
+  gameMinutes.textContent = minutes;
+    if (minutes < 10) {
+      gameMinutes.textContent = "0" + minutes;
+    }
+  console.log(minutes, seconds);
+}
+// TODO: stop timer, save result to a gameTime variable
 // TODO: match logic
 // TODO: count logic
 // TODO: rating logic

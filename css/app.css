@@ -72,6 +72,9 @@ h1 {
 .timer {
   cursor: default;
 }
+.timer {
+  width: 3em;
+}
 
 button {
   display: block;
@@ -97,6 +100,7 @@ button {
   justify-content: space-between;
   align-content: space-between;
 }
+
 
 .card {
   min-width: 22%;
