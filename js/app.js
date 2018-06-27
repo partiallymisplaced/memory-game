@@ -94,8 +94,15 @@ function tick() {
     if (minutes < 10) {
       gameMinutes.textContent = "0" + minutes;
     }
-  console.log(minutes, seconds);
 }
+
+// Reset timer
+
+let restartGame = document.querySelector(".restart-game").addEventListener("click", function(e) {
+  minutes = 0;
+  seconds = 0;
+});
+
 // TODO: stop timer, save result to a gameTime variable
 // TODO: match logic
 // TODO: count logic
