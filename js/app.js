@@ -1,14 +1,3 @@
-let cardSymbols = [
-  "fa-heart", "fa-heart",
-  "fa-star", "fa-star",
-  "fa-circle", "fa-circle",
-  "fa-square", "fa-square",
-  "fa-play", "fa-play",
-  "fa-map-marker", "fa-map-marker",
-  "fa-moon", "fa-moon",
-  "fa-cloud", "fa-cloud"
-];
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -24,6 +13,18 @@ function shuffle(array) {
   return array;
 }
 
+// Card symbols
+let cardSymbols = [
+  "fa-heart", "fa-heart",
+  "fa-star", "fa-star",
+  "fa-circle", "fa-circle",
+  "fa-square", "fa-square",
+  "fa-play", "fa-play",
+  "fa-map-marker", "fa-map-marker",
+  "fa-moon", "fa-moon",
+  "fa-cloud", "fa-cloud"
+];
+
 // Generates the game board
 function generateCard(element, cardSymbol) {
   element.insertAdjacentHTML('afterbegin', `<li class="card back"><i class="fas ${cardSymbol} fa-2x"></i></li>`);
@@ -34,14 +35,20 @@ function generateBoard(cardSymbols) {
   for (let cardSymbol of cardSymbols){
     generateCard(cardDeck, cardSymbol);
   }
-
 }
 
 // Adds event listener to board
-function clickListener() {
-  let playingCards = document.querySelector('.deck');
-  playingCards.addEventListener('click', flipCard, false);
+function addClickListener() {
+  let playingCards = document.querySelectorAll('.card')
+  playingCards.forEach(function(element) {
+    element.addEventListener('click', flipCard);
+  });
 }
+
+// function addClickListener() {
+//   let playingCards = document.querySelector('.deck');
+//   playingCards.addEventListener('click', flipCard, false);
+// }
 
 // Opens cards on click, closes cards after timeout
 function closeCard(e) {
@@ -63,6 +70,12 @@ function flipCard(e) {
   }, 1000);
 }
 
+// function detectMatch(cardOne, cardTwo) {
+//   let cardsMatched = 0;
+//   console.log("It's a match!");
+// }
+
+// Closes modal window
 function closeModalListener() {
   let modalBackground = document.querySelector('.modal-overlay');
   modalBackground.addEventListener('click', function(){
@@ -70,8 +83,7 @@ function closeModalListener() {
   });
 }
 
-// Start timer
-
+// Starts the timer
 let gameSeconds = document.querySelector(".seconds");
 let gameMinutes = document.querySelector(".minutes");
 
@@ -96,8 +108,7 @@ function tick() {
     }
 }
 
-// Reset timer
-
+// Resets the timer
 let restartGame = document.querySelector(".restart-game").addEventListener("click", function(e) {
   minutes = 0;
   seconds = 0;
@@ -115,7 +126,7 @@ function initGame() {
   // TODO: reset rating
   // TODO: reset timer
   generateBoard(shuffle(cardSymbols));
-  clickListener();
+  addClickListener();
   closeModalListener();
 }
 
