@@ -1,6 +1,7 @@
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  var currentIndex = array.length,
+    temporaryValue, randomIndex;
 
   while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
@@ -32,51 +33,39 @@ function generateCard(element, cardSymbol) {
 
 function generateBoard(cardSymbols) {
   let cardDeck = document.querySelector('.deck')
-  for (let cardSymbol of cardSymbols){
+  for (let cardSymbol of cardSymbols) {
     generateCard(cardDeck, cardSymbol);
   }
 }
 
 // Adds event listener
 document.querySelector('.deck').addEventListener('click', handleClick)
+let openedCards = [];
 
 function handleClick(event) {
-  console.log(event.target.tagName === "LI");
   if (event.target.tagName === "LI") {
     event.target.classList.remove('back');
     event.target.classList.add('front');
-  }
-  else {
-    return;
+    openedCards.push(event.target);
+    if (openedCards.length === 2) {
+      if (openedCards[0].childNodes[0].classList[1] === openedCards[1].childNodes[0].classList[1]) {
+        openedCards.forEach(function(element) {
+          element.classList.add('match');
+        });
+        openedCards = [];
+      } else {
+        setTimeout(function() {
+        openedCards.forEach(function(element) {
+          element.classList.remove('front');
+          element.classList.add('back');
+          openedCards = [];
+        });
+      }, 1000);}
+    } else {
+      return;
+    }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -95,24 +84,24 @@ let minutes = 0;
 // let timer = window.setInterval(tick, 1000);
 function tick() {
   seconds += 1;
-  if (seconds >= 60){
+  if (seconds >= 60) {
     seconds = 0;
     minutes += 1;
   }
   gameSeconds.textContent = seconds;
-    if (seconds < 10) {
-      gameSeconds.textContent = "0" + seconds;
-    }
+  if (seconds < 10) {
+    gameSeconds.textContent = "0" + seconds;
+  }
   gameMinutes.textContent = minutes;
-    if (minutes < 10) {
-      gameMinutes.textContent = "0" + minutes;
-    }
+  if (minutes < 10) {
+    gameMinutes.textContent = "0" + minutes;
+  }
 }
 
 // Closes modal window
 function closeModalListener() {
   let modalBackground = document.querySelector('.modal-overlay');
-  modalBackground.addEventListener('click', function(){
+  modalBackground.addEventListener('click', function() {
     modalBackground.classList.toggle('close');
   });
 }
