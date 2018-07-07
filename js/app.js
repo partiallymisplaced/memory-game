@@ -1,4 +1,4 @@
-// Shuffle function from http://stackoverflow.com/a/2450976
+
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -27,7 +27,7 @@ let cardSymbols = [
 
 // Generates the game board
 function generateCard(element, cardSymbol) {
-  element.insertAdjacentHTML('afterbegin', `<li class="card back"><i class="fas ${cardSymbol} fa-2x"></i></li>`);
+  element.insertAdjacentHTML('afterbegin', `<li class="card back"><i class="fas ${cardSymbol} fa-2x do-not-open"></i></li>`);
 }
 
 function generateBoard(cardSymbols) {
@@ -41,25 +41,20 @@ function generateBoard(cardSymbols) {
 function addClickListener() {
   let playingCards = document.querySelectorAll('.card')
   playingCards.forEach(function(element) {
-    element.addEventListener('click', flipCard);
+    element.addEventListener('click', playGame, true);
   });
 }
 
-// function addClickListener() {
-//   let playingCards = document.querySelector('.deck');
-//   playingCards.addEventListener('click', flipCard, false);
-// }
-
 // Opens cards on click, closes cards after timeout
-function closeCard(e) {
-  let cardSelection = e.target;
-  cardSelection.classList.remove('symbol', 'view');
-  cardSelection.classList.add('back');
-}
+// function closeCard(e) {
+//   let cardSelection = e.target;
+//   cardSelection.classList.remove('front');
+//   cardSelection.classList.add('back');
+// }
 
 function openCard(e) {
   let cardSelection = e.target;
-  cardSelection.classList.add('symbol', 'view');
+  cardSelection.classList.add('front');
   cardSelection.classList.remove('back');
 }
 
@@ -70,18 +65,58 @@ function flipCard(e) {
   }, 1000);
 }
 
-// function detectMatch(cardOne, cardTwo) {
-//   let cardsMatched = 0;
-//   console.log("It's a match!");
-// }
-
-// Closes modal window
-function closeModalListener() {
-  let modalBackground = document.querySelector('.modal-overlay');
-  modalBackground.addEventListener('click', function(){
-      modalBackground.classList.toggle('close');
-  });
+// Compare cards
+function detectMatch(cardOne, cardTwo) {
+  console.log("card 2",cardTwo);
+  if (cardTwo) {
+      if (cardOne.children[0].classList[1] === cardTwo.children[0].classList[1]) {
+    return true;
+  } else{
+    return false;
+  }
+  } else{
+    return false;
+  }
 }
+// Play game
+function playGame(event) {
+// if the card is already open or is a match
+  if (event.target.classList.contains('front') || event.target.classList.contains('match'))  {
+// do nothing
+    console.log('Doing nothing');
+    return;
+// otherwise
+  } else {
+// open a card on click
+    event.target.classList.remove('back');
+    event.target.classList.add('front');
+    console.log(event.target);
+// add all cards that are open to an array
+    let openCards = document.querySelectorAll('.front')
+    // console.log(openCards);
+// check if the array has two items
+      if (openCards.length >= 2) {
+        // if the first item in the array is the same as the second (true)
+        if (detectMatch(openCards[0], openCards[1])) {
+          // mark the cards as matched
+          openCards.forEach(function(element) {
+            element.classList.add('match');
+          });
+        } else {
+          // wait and mark the cards as closed
+          setTimeout(function() {
+            openCards.forEach(function(element) {
+              element.classList.remove('front');
+              element.classList.add('back');
+            });
+          }, 1000);
+        }
+      console.log(openCards);
+      }
+    }
+}
+
+
 
 // Starts the timer
 let gameSeconds = document.querySelector(".seconds");
@@ -90,8 +125,7 @@ let gameMinutes = document.querySelector(".minutes");
 let seconds = 0;
 let minutes = 0;
 
-let timer = window.setInterval(tick, 1000);
-
+// let timer = window.setInterval(tick, 1000);
 function tick() {
   seconds += 1;
   if (seconds >= 60){
@@ -106,6 +140,14 @@ function tick() {
     if (minutes < 10) {
       gameMinutes.textContent = "0" + minutes;
     }
+}
+
+// Closes modal window
+function closeModalListener() {
+  let modalBackground = document.querySelector('.modal-overlay');
+  modalBackground.addEventListener('click', function(){
+    modalBackground.classList.toggle('close');
+  });
 }
 
 // Resets the timer
