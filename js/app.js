@@ -27,7 +27,7 @@ let cardSymbols = [
 
 // Generates the game board
 function generateCard(element, cardSymbol) {
-  element.insertAdjacentHTML('afterbegin', `<li class="card back"><i class="fas ${cardSymbol} fa-2x do-not-open"></i></li>`);
+  element.insertAdjacentHTML('afterbegin', `<li class="card back"><i class="fas ${cardSymbol} fa-2x"></i></li>`);
 }
 
 function generateBoard(cardSymbols) {
@@ -36,6 +36,51 @@ function generateBoard(cardSymbols) {
     generateCard(cardDeck, cardSymbol);
   }
 }
+
+// Adds event listener
+document.querySelector('.deck').addEventListener('click', handleClick)
+
+function handleClick(event) {
+  console.log(event.target.tagName === "LI");
+  if (event.target.tagName === "LI") {
+    event.target.classList.remove('back');
+    event.target.classList.add('front');
+  }
+  else {
+    return;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -90,7 +135,6 @@ function initGame() {
   // TODO: reset rating
   // TODO: reset timer
   generateBoard(shuffle(cardSymbols));
-  addClickListener();
   closeModalListener();
 }
 
