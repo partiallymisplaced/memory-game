@@ -24,6 +24,7 @@ h1 {
   cursor: default;
 }
 
+/* Card back from CSS3 Patterns http://lea.verou.me/css3patterns/#seigaiha */
 .card.back {
   box-sizing: border-box;
   border: 6px solid #FFF;
@@ -72,6 +73,7 @@ h1 {
 .timer {
   cursor: default;
 }
+
 .timer {
   width: 3em;
 }
@@ -101,7 +103,6 @@ button {
   align-content: space-between;
 }
 
-
 .card {
   min-width: 22%;
   min-height: 22%;
@@ -112,25 +113,27 @@ button {
   align-items: center;
   cursor: pointer;
 }
+
 .match {
   box-shadow: 0px 0px 12px 6px rgba(255, 239, 195, .85);
 }
+
 .mismatch {
   box-shadow: 0px 0px 12px 6px rgba(255, 88, 88, .85);
 }
 
-.symbol {
+.front {
   font-size: 2em;
 }
 
-.symbol .fa-heart {color: #ff74d3;}
-.symbol .fa-star {color: #ffad4c;}
-.symbol .fa-circle {color: #ff5858;}
-.symbol .fa-square {color: #9cc759 ;}
-.symbol .fa-play {color: #ffd04b; transform: rotate(31deg); transform-origin: 0.2em 0.8em;}
-.symbol .fa-map-marker {color: #55daff; transform: rotate(180deg);}
-.symbol .fa-moon {color: #ab80ff;}
-.symbol .fa-cloud {color: #5b9cff; font-size: 1.8em;}
+.front .fa-heart {color: #ff74d3;}
+.front .fa-star {color: #ffad4c;}
+.front .fa-circle {color: #ff5858;}
+.front .fa-square {color: #9cc759 ;}
+.front .fa-play {color: #ffd04b; transform: rotate(31deg); transform-origin: 0.2em 0.8em;}
+.front .fa-map-marker {color: #55daff; transform: rotate(180deg);}
+.front .fa-moon {color: #ab80ff;}
+.front .fa-cloud {color: #5b9cff; font-size: 1.8em;}
 
 /* TODO: add styles for end-of-game-modal */
 .modal-overlay {
@@ -142,7 +145,6 @@ button {
   top: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.5);
-
 }
 
 .modal {
@@ -201,7 +203,7 @@ button {
   h1 {
     font-size: 4em;
   }
-  .symbol {
+  .front {
     font-size: 1.7em;
   }
   .stars,
@@ -224,7 +226,7 @@ button {
   h1 {
     font-size: 3em;
   }
-  .symbol {
+  .front {
     font-size: 1em;
   }
   .stars,
