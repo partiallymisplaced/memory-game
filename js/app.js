@@ -39,8 +39,13 @@ function generateBoard(cardSymbols) {
 }
 
 // Adds event listener
-document.querySelector('.deck').addEventListener('click', handleClick)
+document.querySelector('.deck').addEventListener('click', handleClick);
 let openedCards = [];
+
+let moves = 0;
+let gameMoves = document.querySelector('.move-count');
+
+let matches = 0;
 
 function handleClick(event) {
   if (event.target.tagName === "LI") {
@@ -48,9 +53,19 @@ function handleClick(event) {
     event.target.classList.add('front');
     openedCards.push(event.target);
     if (openedCards.length === 2) {
+      moves += 1;
+      gameMoves.textContent = moves;
       if (openedCards[0].childNodes[0].classList[1] === openedCards[1].childNodes[0].classList[1]) {
         openedCards.forEach(function(element) {
           element.classList.add('match');
+          matches += 1;
+          console.log(matches); {
+            if (matches === cardSymbols.length) {
+              console.log("You win!");
+            } else {
+              return;
+            }
+          }
         });
         openedCards = [];
       } else {
@@ -68,20 +83,14 @@ function handleClick(event) {
 }
 
 
-
-
-
-
-
-
-// Starts the timer
+// Timer
 let gameSeconds = document.querySelector(".seconds");
 let gameMinutes = document.querySelector(".minutes");
 
 let seconds = 0;
 let minutes = 0;
 
-// let timer = window.setInterval(tick, 1000);
+let timer = window.setInterval(tick, 1000);
 function tick() {
   seconds += 1;
   if (seconds >= 60) {
