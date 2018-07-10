@@ -33,7 +33,7 @@ function generateCard(element, cardSymbol) {
 
 function generateBoard(cardSymbols) {
   let cardDeck = document.querySelector('.deck');
-  if(cardDeck.childNodes.length > 1){
+  if (cardDeck.childNodes.length > 1) {
     cardDeck.innerHTML = "";
   }
   for (let cardSymbol of cardSymbols) {
@@ -57,6 +57,7 @@ function handleClick(event) {
     openedCards.push(event.target);
     if (openedCards.length === 2) {
       moves += 1;
+      rateGame(moves);
       gameMoves.textContent = moves;
       if (openedCards[0].childNodes[0].classList[1] === openedCards[1].childNodes[0].classList[1]) {
         openedCards.forEach(function(element) {
@@ -74,12 +75,13 @@ function handleClick(event) {
         openedCards = [];
       } else {
         setTimeout(function() {
-        openedCards.forEach(function(element) {
-          element.classList.remove('front');
-          element.classList.add('back');
-          openedCards = [];
-        });
-      }, 1000);}
+          openedCards.forEach(function(element) {
+            element.classList.remove('front');
+            element.classList.add('back');
+            openedCards = [];
+          });
+        }, 1000);
+      }
     } else {
       return;
     }
@@ -94,6 +96,7 @@ let seconds = 0;
 let minutes = 0;
 
 let timer = window.setInterval(tick, 1000);
+
 function tick() {
   seconds += 1;
   if (seconds >= 60) {
@@ -118,6 +121,21 @@ function closeModalListener() {
   });
 }
 
+// Rating
+
+function rateGame(moves) {
+  let starRating = document.querySelector('.stars');
+  if (moves > 16 && moves <= 24) {
+    console.log("Three stars");
+    starRating.children[2].classList.add('lost');
+  } else if (moves > 24) {
+    starRating.children[1].classList.add('lost');
+  } else {
+    return;
+  }
+}
+
+
 // Restart the game
 let restartGame = document.querySelector(".restart-game").addEventListener("click", function(e) {
   generateBoard(shuffle(cardSymbols));
@@ -128,7 +146,7 @@ let restartGame = document.querySelector(".restart-game").addEventListener("clic
 });
 
 // TODO: stop timer, save result to a gameTime variable
- // TODO: rating logic
+// TODO: rating logic
 // TODO: end-of-game modal logic
 
 // Initializes the game
