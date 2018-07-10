@@ -32,7 +32,10 @@ function generateCard(element, cardSymbol) {
 }
 
 function generateBoard(cardSymbols) {
-  let cardDeck = document.querySelector('.deck')
+  let cardDeck = document.querySelector('.deck');
+  if(cardDeck.childNodes.length > 1){
+    cardDeck.innerHTML = "";
+  }
   for (let cardSymbol of cardSymbols) {
     generateCard(cardDeck, cardSymbol);
   }
@@ -62,6 +65,7 @@ function handleClick(event) {
           console.log(matches); {
             if (matches === cardSymbols.length) {
               console.log("You win!");
+              clearInterval(timer);
             } else {
               return;
             }
@@ -81,7 +85,6 @@ function handleClick(event) {
     }
   }
 }
-
 
 // Timer
 let gameSeconds = document.querySelector(".seconds");
@@ -115,23 +118,24 @@ function closeModalListener() {
   });
 }
 
-// Resets the timer
+// Restart the game
 let restartGame = document.querySelector(".restart-game").addEventListener("click", function(e) {
+  generateBoard(shuffle(cardSymbols));
+  moves = 0;
+  matches = 0;
   minutes = 0;
   seconds = 0;
 });
 
 // TODO: stop timer, save result to a gameTime variable
-// TODO: match logic
-// TODO: count logic
-// TODO: rating logic
+ // TODO: rating logic
 // TODO: end-of-game modal logic
 
 // Initializes the game
 function initGame() {
-  // TODO: reset moves counter
-  // TODO: reset rating
-  // TODO: reset timer
+  moves = 0;
+  minutes = 0;
+  seconds = 0;
   generateBoard(shuffle(cardSymbols));
   closeModalListener();
 }
