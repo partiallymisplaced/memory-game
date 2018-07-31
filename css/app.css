@@ -115,12 +115,37 @@ button {
 }
 
 .match {
-  box-shadow: 0px 0px 12px 6px rgba(255, 239, 195, .85);
+  animation: match-animation 1s;
+}
+
+@keyframes match-animation {
+  0% {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  }
+  20% {
+    box-shadow: 0px 0px 12px 6px rgba(255, 239, 195, .85);
+  }
+  100% {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  }
 }
 
 .mismatch {
-  box-shadow: 0px 0px 12px 6px rgba(255, 88, 88, .85);
+  animation: mismatch-animation 1s;
 }
+
+@keyframes mismatch-animation {
+  0% {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  }
+  20% {
+    box-shadow: 0px 0px 12px 6px rgba(255, 88, 88, .85);
+  }
+  100% {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  }
+}
+
 
 .front {
   font-size: 2em;
