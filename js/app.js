@@ -18,26 +18,26 @@ function shuffle(array) {
 // Card symbols
 
 let cardSymbols = [
-  "fa-heart", "fa-heart",
-  "fa-star", "fa-star",
-  "fa-circle", "fa-circle",
-  "fa-square", "fa-square",
-  "fa-play", "fa-play",
-  "fa-map-marker", "fa-map-marker",
-  "fa-moon", "fa-moon",
-  "fa-cloud", "fa-cloud"
+  'fa-heart', 'fa-heart',
+  'fa-star', 'fa-star',
+  'fa-circle', 'fa-circle',
+  'fa-square', 'fa-square',
+  'fa-play', 'fa-play',
+  'fa-map-marker', 'fa-map-marker',
+  'fa-moon', 'fa-moon',
+  'fa-cloud', 'fa-cloud'
 ];
 
 // Generates the game board
 
 function generateCard(element, cardSymbol) {
-  element.insertAdjacentHTML('afterbegin', `<li class="card back"><i class="fas ${cardSymbol} fa-2x"></i></li>`);
+  element.insertAdjacentHTML('afterbegin', `<li class='card back'><i class='fas ${cardSymbol} fa-2x'></i></li>`);
 }
 
 function generateBoard(cardSymbols) {
   let cardDeck = document.querySelector('.deck');
   if (cardDeck.childNodes.length > 1) {
-    cardDeck.innerHTML = "";
+    cardDeck.innerHTML = '';
   }
   for (let cardSymbol of cardSymbols) {
     generateCard(cardDeck, cardSymbol);
@@ -56,7 +56,7 @@ let gameMoves = document.querySelector('.move-count');
 let matches = 0;
 
 function handleClick(event) {
-  if (event.target.tagName === "LI" && !event.target.classList.contains('front')) {
+  if (event.target.tagName === 'LI' && !event.target.classList.contains('front')) {
     event.target.classList.remove('back');
     event.target.classList.add('front');
     openedCards.push(event.target);
@@ -69,7 +69,7 @@ function handleClick(event) {
           element.classList.add('match');
           matches += 1; {
             if (matches === cardSymbols.length) {
-              console.log("You win!");
+              console.log('You win!');
               stopTimer();
               openModal();
               document.querySelector('.modal .moves .move-count').textContent = moves;
@@ -98,8 +98,8 @@ function handleClick(event) {
 
 // Timer
 
-let gameSeconds = document.querySelector(".seconds");
-let gameMinutes = document.querySelector(".minutes");
+let gameSeconds = document.querySelector('.seconds');
+let gameMinutes = document.querySelector('.minutes');
 
 let seconds = 0;
 let minutes = 0;
@@ -122,11 +122,11 @@ function tick() {
   }
   gameSeconds.textContent = seconds;
   if (seconds < 10) {
-    gameSeconds.textContent = "0" + seconds;
+    gameSeconds.textContent = '0' + seconds;
   }
   gameMinutes.textContent = minutes;
   if (minutes < 10) {
-    gameMinutes.textContent = "0" + minutes;
+    gameMinutes.textContent = '0' + minutes;
   }
 }
 
@@ -181,9 +181,9 @@ function clearMoves() {
 function startGame() {
   clearMoves();
   minutes = 0;
-  gameMinutes.textContent = "00"
+  gameMinutes.textContent = '00';
   seconds = 0;
-  gameSeconds.textContent = "00"
+  gameSeconds.textContent = '00';
   matches = 0;
 }
 
@@ -196,7 +196,7 @@ function initGame() {
 }
 
 // Restart the game
-document.querySelector(".restart-game").addEventListener("click", function(e) {
+document.querySelector('.restart-game').addEventListener('click', function(e) {
   resetRating();
   stopTimer();
   initGame();
