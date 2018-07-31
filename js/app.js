@@ -1,4 +1,5 @@
 // Shuffle function from http://stackoverflow.com/a/2450976
+
 function shuffle(array) {
   var currentIndex = array.length,
     temporaryValue, randomIndex;
@@ -15,6 +16,7 @@ function shuffle(array) {
 }
 
 // Card symbols
+
 let cardSymbols = [
   "fa-heart", "fa-heart",
   "fa-star", "fa-star",
@@ -27,6 +29,7 @@ let cardSymbols = [
 ];
 
 // Generates the game board
+
 function generateCard(element, cardSymbol) {
   element.insertAdjacentHTML('afterbegin', `<li class="card back"><i class="fas ${cardSymbol} fa-2x"></i></li>`);
 }
@@ -42,6 +45,7 @@ function generateBoard(cardSymbols) {
 }
 
 // Adds event listener
+
 document.querySelector('.deck').addEventListener('click', handleClick);
 let openedCards = [];
 
@@ -92,13 +96,22 @@ function handleClick(event) {
 }
 
 // Timer
+
 let gameSeconds = document.querySelector(".seconds");
 let gameMinutes = document.querySelector(".minutes");
 
 let seconds = 0;
 let minutes = 0;
 
-let timer = window.setInterval(tick, 1000);
+let timer = null;
+
+function startTimer() {
+ timer = window.setInterval(tick, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timer);
+}
 
 function tick() {
   seconds += 1;
@@ -115,7 +128,6 @@ function tick() {
     gameMinutes.textContent = "0" + minutes;
   }
 }
-
 
 // Calculates star rating
 
