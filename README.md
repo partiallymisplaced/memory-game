@@ -1,4 +1,4 @@
-# Memory
+# Memory Game
 
 ### Summary
 
@@ -17,7 +17,7 @@ The player clicks to open cards in pairs of two. If the cards match, they remain
 
 The game ends when all matching pairs have been revealed.
 
-### Dependencies:
+### Dependencies
 
 Montserrat on Google Fonts: https://fonts.google.com/specimen/Montserrat
 
@@ -25,7 +25,7 @@ Monoton on Google Fonts: https://fonts.google.com/specimen/Monoton
 
 Font Awesome v5.0.13: https://fontawesome.com/
 
-### Further reading:
+### Further reading
 
 Concentration on Wikipedia: https://en.wikipedia.org/wiki/Concentration_(game)
 
