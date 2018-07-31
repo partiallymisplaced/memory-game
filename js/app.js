@@ -56,7 +56,7 @@ let gameMoves = document.querySelector('.move-count');
 let matches = 0;
 
 function handleClick(event) {
-  if (event.target.tagName === 'LI' && !event.target.classList.contains('front')) {
+  if (event.target.tagName === 'LI' && !event.target.classList.contains('front') && openedCards.length < 2) {
     event.target.classList.remove('back');
     event.target.classList.add('front');
     openedCards.push(event.target);
