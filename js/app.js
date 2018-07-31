@@ -62,11 +62,14 @@ function handleClick(event) {
       if (openedCards[0].childNodes[0].classList[1] === openedCards[1].childNodes[0].classList[1]) {
         openedCards.forEach(function(element) {
           element.classList.add('match');
-          matches += 1;
-          console.log(matches); {
+          matches += 1; {
             if (matches === cardSymbols.length) {
               console.log("You win!");
-              clearInterval(timer);
+              stopTimer();
+              openModal();
+              document.querySelector('.modal .moves .move-count').textContent = moves;
+              document.querySelector('.modal .rating .stars').innerHTML = document.querySelector('.stars').innerHTML;
+              document.querySelector('.modal .timer .game-time').innerText = document.querySelector('.timer').innerText;
             } else {
               return;
             }
