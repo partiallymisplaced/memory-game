@@ -47,6 +47,7 @@ function generateBoard(cardSymbols) {
 // Adds event listener
 
 document.querySelector('.deck').addEventListener('click', handleClick);
+
 let openedCards = [];
 
 let moves = 0;
@@ -131,14 +132,23 @@ function tick() {
 
 // Calculates star rating
 
+let starRating = document.querySelector('.stars');
+
 function rateGame(moves) {
-  let starRating = document.querySelector('.stars');
   if (moves > 16 && moves <= 24) {
     starRating.children[2].classList.add('lost');
   } else if (moves > 24) {
     starRating.children[1].classList.add('lost');
   } else {
     return;
+  }
+}
+
+
+
+function resetRating() {
+  for (let eachStar of starRating.children) {
+    eachStar.classList.remove('lost');
   }
 }
 
@@ -187,6 +197,7 @@ function initGame() {
 
 // Restart the game
 document.querySelector(".restart-game").addEventListener("click", function(e) {
+  resetRating();
   stopTimer();
   initGame();
 });
