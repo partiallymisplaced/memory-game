@@ -164,6 +164,7 @@ function initGame() {
 function resetMoves() {
   moves = 0;
   gameMoves.textContent = moves;
+  openedCards = [];
 }
 
 function resetMatches() {
